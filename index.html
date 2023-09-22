@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASM Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(
+          0deg,
+          rgb(214 214 214) 0%,
+          rgb(126 162 180) 100%
+        );
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+        color: #57250b;
+      }
+      h1 {
+        font-size: 28px;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 18px;
+      }
+      #powerLevel {
+        font-weight: bold;
+      }
+      button {
+        font-size: 16px;
+        background-color: #db3a2a;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #c6281d;
+      }
+
+      button:disabled {
+        opacity: 0.8;
+        background-color: #847e80;
+        cursor: none;
+      }
+
+      #result {
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+
+      #powerBarContainer {
+        width: 100%;
+        max-width: 300px;
+        height: 30px;
+        background-color: #e3d7d7;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 40px;
+      }
+
+      #powerBar {
+        width: 0;
+        height: 100%;
+        background-color: #db3a2a;
+        transition: width 0.3s ease;
+      }
+
+      #footerLogo {
+        width: 100px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <img
+      src="./goku-kame.gif"
+      alt="GIF Dragon Ball"
+      id="powerGif"
+      style="display: none"
+    />
+    <h1>Dragon Ball - WASM Demo</h1>
+
+    <p>Poder actual: <span id="powerLevel">0</span></p>
+
+    <div id="powerBarContainer">
+      <div id="powerBar"></div>
+    </div>
+
+    <button id="chargeBtn">Cargar Poder</button>
+    <button id="fireBtn">Lanzar Kamehameha</button>
+    <p id="result"></p>
+
+    <img
+      src="https://raw.githubusercontent.com/WebAssembly/web-assembly-logo/main/dist/logo/web-assembly-logo.png"
+      alt="WebAssembly Logo"
+      id="footerLogo"
+    />
+
+    <!-- For Rust x WASM x JS -->
+    <script type="module" src="./wasm-rust.js"></script>
+
+    <!-- For C/C++ x WASM x JS -->
+    <!-- <script src="./c/dragon_ball.js"></script> -->
+    <!-- <script src="./c++/dragon_ball.js"></script> -->
+    <!-- <script type="module" src="./wasm-c-c++.js"></script> -->
+  </body>
+</html>
